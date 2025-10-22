@@ -1,33 +1,56 @@
 import React from "react";
+import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const HomePage = () => {
   const navigate = useNavigate();
 
+  const cards = [
+    {
+      title: "For Students",
+      text: "Post questions during class without disrupting. Get answers from professors or TAs.",
+    },
+    {
+      title: "For Professors",
+      text: "Teach with focus while questions are collected. Respond when convenient, ensuring clarity.",
+    },
+    {
+      title: "For TAs",
+      text: "Handle escalated or unanswered questions, ensuring no student query goes unnoticed.",
+    },
+  ];
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-6 bg-gray-100">
-      <h1 className="text-4xl font-bold">Welcome to Vidya Vichar</h1>
-      <p className="text-gray-700 text-center max-w-md">
-        platform dedicated to sharing educational resources and fostering
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-start gap-8 px-4 py-15 text-center z-10 backdrop-blur-xs">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">
+        Welcome to Vidya Vichar
+      </h1>
+
+      <p className="text-gray-100 max-w-xl text-base sm:text-lg md:text-xl leading-relaxed px-4">
+        A platform dedicated to sharing educational resources and fostering collaborative learning.
       </p>
 
-      <div className="flex gap-4">
-        <button
-          onClick={() => navigate("/login")}
-          className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Login
-        </button>
+      <button
+        onClick={() => navigate("/signup")}
+        className="flex items-center gap-2 px-6 py-3 text-md sm:text-lg bg-gradient-to-r from-pink-500 to-violet-500 text-white font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+      >
+        <span>Get Started</span>
+        <FaArrowRight className="text-white text-lg" />
+      </button>
 
-        <button
-          onClick={() => navigate("/signup")}
-          className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-        >
-          Sign Up
-        </button>
+      <div className="flex flex-wrap items-center justify-center gap-6 mt-6 w-full px-4">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="w-[90%] sm:w-[300px] h-auto sm:h-[200px] rounded-2xl p-6 bg-violet-300 bg-opacity-80 hover:shadow-lg hover:shadow-violet-400/50 hover:scale-105 transition-transform duration-300"
+          >
+            <h3 className="font-bold text-xl sm:text-2xl mb-3 text-pink-900">{card.title}</h3>
+            <p className="text-gray-800 text-sm sm:text-base leading-relaxed">{card.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;

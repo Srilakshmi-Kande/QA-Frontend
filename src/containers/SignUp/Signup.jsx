@@ -64,7 +64,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg shadow-md">
+    <div className="w-[300px] sm:w-[400px] mx-auto mt-10 p-6 rounded-lg shadow-md backdrop-blur-sm">
       <SignUpView
         name={name}
         setName={setName}

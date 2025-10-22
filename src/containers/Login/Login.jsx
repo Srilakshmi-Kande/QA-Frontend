@@ -28,15 +28,17 @@ const Login = () => {
   };
 
   return (
-    <LoginView
-      email={email}
-      setEmail={setEmail}
-      password={password}
-      setPassword={setPassword}
-      handleSubmit={handleSubmit}
-      errorMsg={errorMsg}
-      loading={loginMutation.isLoading}
-    />
+    <div className="w-[300px] sm:w-[400px] mx-auto mt-10 p-6 rounded-lg shadow-md backdrop-blur-sm">
+      <LoginView
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        handleSubmit={handleSubmit}
+        errorMsg={errorMsg}
+        loading={loginMutation.isLoading}
+      />
+    </div>
   );
 };
 
