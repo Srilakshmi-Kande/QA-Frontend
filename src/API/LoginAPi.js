@@ -2,7 +2,7 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
-export const useLogin = () => {
+export const useLogin = (navigate) => {
   return useMutation({
     mutationFn: async ({ email, password }) => {
       const { data } = await axios.post("http://localhost:3000/auth/login", {
@@ -12,11 +12,31 @@ export const useLogin = () => {
       return data;
     },
     onSuccess: (data) => {
-      localStorage.setItem("token", data.token || data.session?.access_token);
+      const token = data.token || data.session?.access_token;
+      const role = data.user?.role?.toLowerCase() || data.role?.toLowerCase();
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role);
+
+      switch (role) {
+        case "professor":
+          navigate("/professor/dashboard");
+          break;
+        case "student":
+          navigate("/student/dashboard");
+          break;
+        case "teaching assistant":
+        case "ta":
+          navigate("/ta/dashboard");
+          break;
+        default:
+          navigate("/dashboard");
+      }
     },
     onError: (error) => {
       console.error("Login failed:", error);
-      throw error.response?.data?.message || "Login failed";
+      const message = error.response?.data?.message || "Login failed";
+      throw new Error(message);
     },
   });
 };

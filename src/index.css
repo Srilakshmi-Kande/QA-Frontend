@@ -6,7 +6,7 @@ body {
   width: 100%;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: url("./public/still-life-books-versus-technology_23-2150063081.jpg") no-repeat center center fixed;
+  background: url("/still-life-books-versus-technology_23-2150063081.jpg") no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
   overflow-x: hidden;

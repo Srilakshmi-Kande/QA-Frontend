@@ -28,7 +28,7 @@ const LoginView = ({ email, setEmail, password, setPassword, handleSubmit, error
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-2 rounded-lg font-semibold text-white bg-linear-to-r from-pink-500 to-violet-500 transition-all duration-300 hover:shadow-[0_0_20px_#ec4899,0_0_30px_#8b5cf6] hover:scale-103"
+          className="cursor-pointer px-6 py-2 rounded-lg font-semibold text-white bg-linear-to-r from-pink-500 to-violet-500 transition-all duration-300 hover:shadow-[0_0_20px_#ec4899,0_0_30px_#8b5cf6] hover:scale-103"
         >
           {loading ? "Logging in..." : "Login"}
         </button>

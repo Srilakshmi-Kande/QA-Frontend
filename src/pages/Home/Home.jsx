@@ -32,7 +32,7 @@ const HomePage = () => {
 
       <button
         onClick={() => navigate("/signup")}
-        className="flex items-center gap-2 px-6 py-3 text-md sm:text-lg bg-linear-to-r from-pink-500 to-violet-500 text-white font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+        className="cursor-pointer flex items-center gap-2 px-6 py-3 text-md sm:text-lg bg-linear-to-r from-pink-500 to-violet-500 text-white font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
       >
         <span>Get Started</span>
         <FaArrowRight className="text-white text-lg" />
