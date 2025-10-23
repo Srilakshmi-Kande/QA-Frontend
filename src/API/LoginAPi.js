@@ -15,9 +15,6 @@ export const useLogin = (navigate) => {
       const token = data.token || data.session?.access_token;
       const role = data.user?.role?.toLowerCase() || data.role?.toLowerCase();
 
-      localStorage.setItem("token", token);
-      localStorage.setItem("role", role);
-
       switch (role) {
         case "professor":
           navigate("/professor/dashboard");
@@ -25,7 +22,6 @@ export const useLogin = (navigate) => {
         case "student":
           navigate("/student/dashboard");
           break;
-        case "teaching assistant":
         case "ta":
           navigate("/ta/dashboard");
           break;

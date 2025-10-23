@@ -22,7 +22,7 @@ const Login = () => {
           const role = data.user?.role?.toLowerCase();
           if (role === "student") navigate("/student/dashboard");
           else if (role === "professor") navigate("/professor/dashboard");
-          else if (role === "teaching assistant") navigate("/ta/dashboard");
+          else if (role === "ta") navigate("/ta/dashboard");
           else navigate("/dashboard");
         },
         onError: (err) => {

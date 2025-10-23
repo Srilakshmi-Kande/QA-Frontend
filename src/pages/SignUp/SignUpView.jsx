@@ -8,6 +8,8 @@ const SignUpView = ({
   setEmail,
   password,
   setPassword,
+  role,
+  setRole,
   avatarUrl,
   setAvatarUrl,
   bio,
@@ -48,6 +50,13 @@ const SignUpView = ({
           className="border p-2 rounded outline-none placeholder-gray-300 border-gray-300 hover:border-white hover:border-2"
           required
         />
+
+        <select value={role} onChange={(e) => setRole(e.target.value)} className={`border rounded-md p-2 outline-none hover:border-white hover:border-2 ${!role ? "text-gray-300" : "text-gray-300"}`}>
+          <option value="">Select role</option>
+          <option value="Student" className="text-gray-900">Student</option>
+          <option value="Professor" className="text-gray-900">Professor</option>
+          <option value="TA" className="text-gray-900">TA</option>
+        </select>
 
         <input
           type="text"

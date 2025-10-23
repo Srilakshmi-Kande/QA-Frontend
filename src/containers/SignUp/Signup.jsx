@@ -6,6 +6,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState('');
   const [avatarUrl, setAvatarUrl] = useState("");
   const [bio, setBio] = useState("");
 
@@ -20,8 +21,8 @@ const Signup = () => {
     setSuccessMsg("");
 
     try {
-      if (!name || !email || !password) {
-        throw new Error("Name, email, and password are required.");
+      if (!name || !email || !password || !role) {
+        throw new Error("Name, email,password, and role are required.");
       }
       
       const { data: authData, error: authError } = await db.auth.signUp({
@@ -36,6 +37,7 @@ const Signup = () => {
           id: authData.user.id,
           display_name: name,
           email,
+          role,
           avatar_url: avatarUrl || null,
           bio: bio || null,
         },
@@ -53,6 +55,7 @@ const Signup = () => {
       setName("");
       setEmail("");
       setPassword("");
+      setRole("");
       setAvatarUrl("");
       setBio("");
     } catch (error) {
@@ -72,6 +75,8 @@ const Signup = () => {
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
+        role={role}
+        setRole={setRole}
         avatarUrl={avatarUrl}
         setAvatarUrl={setAvatarUrl}
         bio={bio}
