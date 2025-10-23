@@ -1,19 +1,18 @@
-// src/API/LoginApi.js
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
 export const useLogin = (navigate) => {
   return useMutation({
     mutationFn: async ({ email, password }) => {
-      const { data } = await axios.post("http://localhost:3000/auth/login", {
-        email,
-        password,
-      });
-      return data;
+      const response = await axios.post("http://localhost:3000/auth/login", { email, password });
+      console.log(response)
+      return response.data.data; 
     },
     onSuccess: (data) => {
-      const token = data.token || data.session?.access_token;
-      const role = data.user?.role?.toLowerCase() || data.role?.toLowerCase();
+      const token = data.session?.access_token;
+      const role = data.user?.role?.toLowerCase();
+
+      if (token) localStorage.setItem("token", token);
 
       switch (role) {
         case "professor":
@@ -31,8 +30,7 @@ export const useLogin = (navigate) => {
     },
     onError: (error) => {
       console.error("Login failed:", error);
-      const message = error.response?.data?.message || "Login failed";
-      throw new Error(message);
+      return error.response?.data?.message || "Login failed";
     },
   });
 };

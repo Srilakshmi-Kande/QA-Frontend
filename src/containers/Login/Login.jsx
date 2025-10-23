@@ -1,33 +1,23 @@
 import React, { useState } from "react";
 import LoginView from "../../pages/Login/LoginView";
-import { useLogin } from "../../API/LoginAPi";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../../API/LoginAPi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const loginMutation = useLogin(navigate);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMsg("");
-
     loginMutation.mutate(
       { email, password },
       {
-        onSuccess: (data) => {
-          const role = data.user?.role?.toLowerCase();
-          if (role === "student") navigate("/student/dashboard");
-          else if (role === "professor") navigate("/professor/dashboard");
-          else if (role === "ta") navigate("/ta/dashboard");
-          else navigate("/dashboard");
-        },
-        onError: (err) => {
-          setErrorMsg(err.message);
-        },
+        onError: (err) => setErrorMsg(err.message),
       }
     );
   };

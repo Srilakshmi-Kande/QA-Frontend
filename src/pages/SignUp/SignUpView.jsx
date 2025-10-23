@@ -10,10 +10,6 @@ const SignUpView = ({
   setPassword,
   role,
   setRole,
-  avatarUrl,
-  setAvatarUrl,
-  bio,
-  setBio,
   handleSubmit,
 }) => {
 
@@ -53,26 +49,10 @@ const SignUpView = ({
 
         <select value={role} onChange={(e) => setRole(e.target.value)} className={`border rounded-md p-2 outline-none hover:border-white hover:border-2 ${!role ? "text-gray-300" : "text-gray-300"}`}>
           <option value="">Select role</option>
-          <option value="Student" className="text-gray-900">Student</option>
-          <option value="Professor" className="text-gray-900">Professor</option>
-          <option value="TA" className="text-gray-900">TA</option>
+          <option value="student" className="text-gray-900">student</option>
+          <option value="professor" className="text-gray-900">professor</option>
+          <option value="ta" className="text-gray-900">ta</option>
         </select>
-
-        <input
-          type="text"
-          placeholder="Avatar URL (optional)"
-          value={avatarUrl}
-          onChange={(e) => setAvatarUrl(e.target.value)}
-          className="border p-2 rounded outline-none placeholder-gray-300 border-gray-300 hover:border-white hover:border-2"
-        />
-
-        <textarea
-          placeholder="Bio (optional)"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          className="border p-2 rounded outline-none placeholder-gray-300 border-gray-300 hover:border-white hover:border-2"
-          rows={3}
-        />
 
         <button
           type="submit"
