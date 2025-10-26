@@ -12,7 +12,7 @@ export const useLogin = (navigate) => {
       const token = data.session?.access_token;
       const role = data.user?.role?.toLowerCase();
 
-      if (token) localStorage.setItem("token", token);
+      // if (token) localStorage.setItem("token", token);
 
       switch (role) {
         case "professor":

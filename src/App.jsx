@@ -10,7 +10,7 @@ import './App.css'
 import ProfessorDashboard from './pages/Dashboard/ProfessorDashboard'
 import StudentDashboard from './pages/Dashboard/StudentDashboard'
 import TADashboard from './pages/Dashboard/TADashboard'
-
+import Classroom from './pages/Dashboard/ClassRoom/ClassRoom'
 
 const router = createBrowserRouter([
   {
@@ -43,11 +43,17 @@ const router = createBrowserRouter([
       {
         path: "/ta/dashboard",
         element: (
-          <ProtectedRouter allowedRoles={["teaching assistant", "ta"]}>
+          <ProtectedRouter allowedRoles={["ta"]}>
             <TADashboard />
           </ProtectedRouter>
         ),
       },
+      { 
+        path: '/classroom', element: (
+        <ProtectedRouter>
+          <Classroom />
+        </ProtectedRouter>
+      )}
     ],
   },
 ])
