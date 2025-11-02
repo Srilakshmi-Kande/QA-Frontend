@@ -5,12 +5,12 @@ import SignUp from './containers/SignUp/Signup'
 import LoginContainer from './containers/Login/Login'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ProtectedRouter from './routes/ProtectedRouter'
-import Home from './pages/Home/Home'
 import './App.css'
 import ProfessorDashboard from './pages/Dashboard/ProfessorDashboard'
 import StudentDashboard from './pages/Dashboard/StudentDashboard'
 import TADashboard from './pages/Dashboard/TADashboard'
 import Classroom from './pages/Dashboard/ClassRoom/ClassRoom'
+import Home from './pages/Home/Home'
 
 const router = createBrowserRouter([
   {

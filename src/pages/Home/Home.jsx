@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const HomePage = () => {
+const Home = () => {
   const navigate = useNavigate();
 
   const cards = [
@@ -53,4 +53,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
